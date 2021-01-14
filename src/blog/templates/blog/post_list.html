@@ -5,7 +5,7 @@
     {% for object in object_list %}
         <h1>{{ object.title }}</h1>
         <img src="{{ object.image.url }}" alt="">
-        <p>{{ object.content|truncatechars:20 }}</p>
+        <p>{{ object.content|truncatechars:20 }}</p>  <!-- content'de 20karakter gösteriyor sonuna 3 nokta koyuyor -->
     {% endfor %}
 {% endblock content %}
     
