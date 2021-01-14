@@ -22,7 +22,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path("", include("blog.urls"))
+    path("", include("blog.urls"))
 ]
 
 # Geliştirme yaparken benim belirttiğim media url ve root u kullanmak için bu kodları yazın:
