@@ -120,3 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'  # image için bu gerekli
+
+MEDIA_ROOT = BASE_DIR / "media_root"  # image için bu gerekli

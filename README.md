@@ -39,11 +39,15 @@
 - py manage.py runserver
 <br>
 
+- py -m pip install pillow  // resimleri kullanmak için bunu kurmalıyız
+bu üçünü de unutmayın
+py -m pip freeze >.\requirement.txt
+py manage.py makemigrations
+py manage.py migrate
+<br>
+
 - py manage.py migrate  // Modelde değişiklik yapacaksak migrate komutunu kullanıyoruz
 - py manage.py createsuperuser
 - py manage.py makemigrations
 - py manage.py migrate
-
-<br>
-
 

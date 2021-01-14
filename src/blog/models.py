@@ -3,8 +3,16 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+def user_directory_path(instance, filename):
+    return "blog/{0}/{1}".format(instance.author.id, filename)
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    
+    class Meta:
+        verbose_name_plural = "Categories"  # Datebase de görüntüsünü değiştirdik sadece
+    
+    def __str__(self):
+        return self.name
     
 class Post(models.Model):
     OPTIONS = (
@@ -13,7 +21,7 @@ class Post(models.Model):
     )
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to="user_directory_path", default='django.jpg')
     category = models.ForeignKey(Category, on_delete=models.PROTECT)  # Protect tablonun silinmesine izin vermiyr, eğer bunu iin verirsek (CASCADE ile) tm post gidiyor
     publish_date = models.DateTimeField(auto_now_add=True)  # save ettiğimizde otomatik olarak datebase tarih ve saati koyuyuor
     last_updated = models.DateTimeField(auto_now=True)  # her update edildiğinde Time ı değiştiriyor
@@ -21,3 +29,8 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=OPTIONS, default='d')
     slug = models.SlugField(blank=True, unique=True)  # Blank zorunlu değil demek
+    
+    def __str__(self):
+        return self.title
+    
+    
