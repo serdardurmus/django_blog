@@ -92,6 +92,8 @@ myenv/
 tenv/
 denv/
 .denv
+benv/
+.benv
 
 # Spyder project settings
 .spyderproject
